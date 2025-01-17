@@ -1,0 +1,277 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+  transition: color 0.3s;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  text-align: right;
+  direction: rtl;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #213547;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the logo and the heading horizontally */
+  gap: 10px; /* Add spacing between logo and heading */
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Logo Styling */
+.logo {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  top: 20px; /* Position at the top */
+  left: 20px; /* Align to the left */
+}
+
+/* h1 Styling */
+h1 {
+  font-size: 2.8em;
+  line-height: 1.2;
+  color: #213547;
+  text-align: center; /* Center the text */
+  margin-top: 80px; /* Ensure space below the logo */
+}
+
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: right;
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Form Inputs */
+input {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  direction: rtl;
+  text-align: right;
+  font-size: 1em;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+  color: #242424;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(100, 108, 255, 0.6);
+  border-color: #646cff;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-button {
+  background-color: #ff9800;
+  color: white;
+  margin-bottom: 20px;
+}
+.add-button:hover {
+  background-color: #e68900;
+  transform: translateY(-2px);
+}
+
+.print-button {
+  background-color: #4caf50;
+  color: white;
+}
+.print-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9em;
+  }
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .form-section {
+    flex-direction: column;
+  }
+}
+
+/* Print Styles */
+/* Print Styles */
+@media print {
+  /* Hide non-printable elements */
+  .form-section,
+  button,
+  .no-print,
+  nav,
+  footer,
+  .social-icons,
+  .search-bar,
+  .sidebar {
+    display: none !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+    background: none;
+    color: #000;
+  }
+
+  /* Links handling */
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  /* Table improvements */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    page-break-inside: avoid;
+  }
+
+  tr, th, td {
+    border: 1pt solid #ddd;
+    padding: 8pt;
+    text-align: left;
+  }
+
+  /* Header and logo styling */
+  .header {
+    display: block;
+    text-align: center;
+    margin-bottom: 20pt;
+    page-break-after: avoid;
+  }
+
+  .logo {
+    position: static;
+    width: 200px;
+    height: auto;
+    margin: 0 auto 10pt;
+    display: block;
+    margin-right: 300px;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    color: #000;
+    margin-top: 16pt;
+    margin-bottom: 8pt;
+  }
+
+  h1 {
+    font-size: 24pt;
+    margin-top: 0;
+  }
+
+  /* Avoid breaking inside important elements */
+  p, blockquote, ul, ol, dl {
+    page-break-inside: avoid;
+  }
+
+  /* Image handling */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Remove box shadows and backgrounds */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background: transparent !important;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Ensure last page footer appears */
+  main {
+    min-height: 0 !important;
+  }
+}
