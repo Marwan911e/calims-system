@@ -1,277 +1,351 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Base styles */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-  transition: color 0.3s;
+/* Keep logo styles from original App.css */
+.logo {
+  height: 11em; /* Increase size */
+  padding: 1em;
+  position: absolute;
+  top: -51px;
+  left: 10px;
 }
-a:hover {
-  color: #535bf2;
+
+/* New styles for enhanced Claims System */
+:root {
+  --primary-color: #646cff;
+  --primary-color-light: #646cff33;
+  --secondary-color: #61dafb;
+  --danger-color: #ff4d4f;
+  --text-color: #333;
+  --border-color: #ddd;
+  --bg-light: #f9f9f9;
+  --success-color: #52c41a;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   direction: rtl;
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
-  color: #213547;
+  color: var(--text-color);
+  background-color: #f5f7f9;
+  margin: 0;
+  padding: 0;
+}
+
+.claims-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /* Header Styles */
 .header {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the logo and the heading horizontally */
-  gap: 10px; /* Add spacing between logo and heading */
-  margin-bottom: 20px;
+  justify-content: flex-start; /* Align content to the left */
+  align-items: center;
   position: relative;
+  margin-bottom: 30px;
 }
 
-/* Logo Styling */
-.logo {
-  width: 200px;
-  height: auto;
-  position: absolute;
-  top: 20px; /* Position at the top */
-  left: 20px; /* Align to the left */
+.header h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin: 10px 0;
 }
 
-/* h1 Styling */
-h1 {
-  font-size: 2.8em;
-  line-height: 1.2;
-  color: #213547;
-  text-align: center; /* Center the text */
-  margin-top: 80px; /* Ensure space below the logo */
+/* Card Styles */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
+.form-card h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-/* Table Styling */
-table {
+/* Form Styles */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+/* Button Styles */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #5158cc;
+}
+
+.secondary-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.secondary-button:hover {
+  background-color: #45b8d8;
+}
+
+.danger-button {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.danger-button:hover {
+  background-color: #ff2b2b;
+}
+
+.disabled-button {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.edit-button:hover {
+  background-color: rgba(97, 218, 251, 0.2);
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 77, 79, 0.2);
+}
+
+/* Search and Actions */
+.actions-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.claims-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
 }
 
-th, td {
+.claims-table th,
+.claims-table td {
   padding: 12px 15px;
-  border: 1px solid #ddd;
   text-align: right;
+  border: 1px solid var(--border-color);
 }
 
-th {
-  background-color: #007bff;
+.claims-table th {
+  background-color: var(--primary-color);
   color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
-}
-
-/* Form Inputs */
-input {
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  direction: rtl;
-  text-align: right;
-  font-size: 1em;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s;
-  color: #242424;
-}
-
-input:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(100, 108, 255, 0.6);
-  border-color: #646cff;
-}
-
-/* Buttons */
-button {
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  transition: background-color 0.3s, transform 0.2s;
 }
 
-.add-button {
-  background-color: #ff9800;
-  color: white;
-  margin-bottom: 20px;
-}
-.add-button:hover {
-  background-color: #e68900;
-  transform: translateY(-2px);
+.claims-table tr:nth-child(even) {
+  background-color: var(--bg-light);
 }
 
-.print-button {
-  background-color: #4caf50;
-  color: white;
-}
-.print-button:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
+.even-row {
+  background-color: var(--bg-light);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  table {
-    font-size: 0.9em;
-  }
-  input {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  .form-section {
-    flex-direction: column;
-  }
+.claims-table tr:hover {
+  background-color: #eef2ff;
 }
 
-/* Print Styles */
+.action-cell {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.no-data {
+  text-align: center;
+  padding: 30px;
+  color: #888;
+  font-style: italic;
+}
+
 /* Print Styles */
 @media print {
-  /* Hide non-printable elements */
-  .form-section,
-  button,
-  .no-print,
-  nav,
-  footer,
-  .social-icons,
-  .search-bar,
-  .sidebar {
+  @page {
+    size: A4;
+    margin: 1cm;
+  }
+
+  /* Hide non-print elements */
+  .no-print {
     display: none !important;
   }
 
-  /* Page setup */
-  @page {
-    margin: 2cm;
-    size: A4;
+  /* Show print-only elements */
+  .print-only {
+    display: block;
   }
 
   body {
+    background-color: white;
+    color: black;
     font-size: 12pt;
-    line-height: 1.3;
-    background: none;
-    color: #000;
   }
 
-  /* Links handling */
-  a {
-    text-decoration: none;
-    color: #000;
-  }
-
-  a[href^="http"]:after {
-    content: " (" attr(href) ")";
-    font-size: 10pt;
-    font-style: italic;
-  }
-
-  /* Table improvements */
-  table {
-    border-collapse: collapse;
+  .claims-container {
+    padding: 0;
     width: 100%;
-    page-break-inside: avoid;
+    max-width: 100%;
   }
 
-  tr, th, td {
-    border: 1pt solid #ddd;
-    padding: 8pt;
-    text-align: left;
-  }
-
-  /* Header and logo styling */
+  /* Header print styles */
   .header {
-    display: block;
-    text-align: center;
-    margin-bottom: 20pt;
-    page-break-after: avoid;
+    justify-content: flex-start;
+    position: relative;
   }
 
   .logo {
-    position: static;
-    width: 200px;
-    height: auto;
-    margin: 0 auto 10pt;
-    display: block;
-    margin-right: 300px;
+    height: 11em; /* Increase size */
+    padding: 1em;
+    position: absolute;
+    top: -51px;
+    left: 10px;
   }
 
-  /* Typography improvements */
-  h1, h2, h3, h4, h5, h6 {
-    page-break-after: avoid;
-    page-break-inside: avoid;
-    color: #000;
-    margin-top: 16pt;
-    margin-bottom: 8pt;
-  }
-
-  h1 {
+  .header h1 {
+    text-align: center;
     font-size: 24pt;
-    margin-top: 0;
   }
 
-  /* Avoid breaking inside important elements */
-  p, blockquote, ul, ol, dl {
-    page-break-inside: avoid;
+  /* Table print styles */
+  .claims-table th {
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #000;
   }
 
-  /* Image handling */
-  img {
-    max-width: 100% !important;
-    page-break-inside: avoid;
+  .claims-table td {
+    border: 1px solid #000;
+    padding: 6px;
   }
 
-  /* Remove box shadows and backgrounds */
-  * {
-    box-shadow: none !important;
-    text-shadow: none !important;
-    background: transparent !important;
+  /* Footer print styles */
+  .print-footer {
+    margin-top: 30px;
+    border-top: 1px dashed #000;
+    padding-top: 15px;
   }
 
-  /* Page breaks */
-  .page-break {
-    page-break-before: always;
+  .signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
   }
 
-  /* Ensure last page footer appears */
-  main {
-    min-height: 0 !important;
+  .signature-box {
+    width: 45%;
+  }
+
+  .signature-line {
+    border-top: 1px solid #000;
+    margin-top: 40px;
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 9pt;
+    margin-top: 10px;
   }
 }
