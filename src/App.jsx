@@ -248,6 +248,7 @@ const ClaimsSystem = () => {
             <tr>
               <th>الاسم</th>
               <th>الرقم</th>
+              <th>الشركة</th>
               <th>التاريخ</th>
               <th>الكشف</th>
               <th>القيمة</th>
@@ -260,6 +261,7 @@ const ClaimsSystem = () => {
                 <tr key={index} className={index % 2 === 0 ? "even-row" : "odd-row"}>
                   <td>{row.الاسم}</td>
                   <td>{row.الرقم}</td>
+                  <td>{row.الشركه}</td>
                   <td>{row.التاريخ}</td>
                   <td>{row.الكشف}</td>
                   <td>{row.القيمه}</td>
